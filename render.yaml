@@ -5,6 +5,7 @@
 
 services:
   - type: web
+    plan: free # optional (defaults to starter)
     name: Hanamimastery
     env: ruby
     buildCommand: "./bin/render-build.sh"
