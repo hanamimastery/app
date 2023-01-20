@@ -13,6 +13,8 @@ services:
     envVars:
       - key: HANAMI_ENV
         value: production
+      - key: HANAMI_PORT
+        value: 3000
 
       # - key: DATABASE_URL
       #   fromDatabase:
