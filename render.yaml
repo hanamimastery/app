@@ -11,6 +11,7 @@ services:
     startCommand: "bundle exec hanami server"
     envVars:
       - key: HANAMI_ENV
+        value: production
 
       # - key: DATABASE_URL
       #   fromDatabase:
