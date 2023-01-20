@@ -9,7 +9,7 @@ services:
     name: Hanamimastery
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec hanami server"
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: HANAMI_ENV
         value: production
