@@ -11,7 +11,7 @@ App is available under: [https://app.hanamimastery.com][https://app.hanamimaster
 
 ## Learnings
 
-The app production is showcased in [Hanami Mastery PRO](https://pro.hanamimastery.com) episodes. Make sure you subscribe to learn how to implement cool [Hanami 2](https://hanamirb.org) features in your ruby apps.
+The app production is showcased in [Hanami Mastery PRO](https://pro.hanamimastery.com) episodes. Make sure you subscribe to learn how to implement cool [Hanami 2](httpsh://hanamirb.org) features in your ruby apps.
 
 ## Development
 

@@ -3,7 +3,8 @@
 
 require "hanami/action"
 
-module HanamiMastery
+module Hanamimastery
+  # The application action.
   class Action < Hanami::Action
   end
 end

@@ -2,7 +2,9 @@
 
 require "hanami"
 
-module HanamiMastery
+module Hanamimastery
+  # Handles HTTP requests.
   class App < Hanami::App
+    config.actions.content_security_policy[:script_src] = "https://unpkg.com"
   end
 end
