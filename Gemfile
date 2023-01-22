@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby File.read(".tool-versions").lines[0].split(' ').last
+ruby '3.2.0'
 
 source "https://rubygems.org"
 
