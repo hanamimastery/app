@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami/boot"
+require 'hanami/boot'
 Bundler.require :tools if Hanami.env? :development
 
 run Hanami.app

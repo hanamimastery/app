@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "with temporary directory" do
+RSpec.shared_context 'with temporary directory' do
   using Refinements::Pathnames
 
-  let(:temp_dir) { Bundler.root.join "tmp/rspec" }
+  let(:temp_dir) { Bundler.root.join 'tmp/rspec' }
 
   around do |example|
     temp_dir.make_path

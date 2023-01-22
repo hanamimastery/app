@@ -5,19 +5,19 @@ module Test
   module Database
     def self.relations = rom.relations
 
-    def self.rom = Hanami.app["persistence.rom"]
+    def self.rom = Hanami.app['persistence.rom']
 
-    def self.db = Hanami.app["persistence.db"]
+    def self.db = Hanami.app['persistence.db']
   end
 end
 
-require "database_cleaner/sequel"
+require 'database_cleaner/sequel'
 
 using Refinements::Pathnames
 
 DatabaseCleaner[:sequel].strategy = :transaction
 
-Pathname.require_tree SPEC_ROOT, "support/factories/**/*.rb"
+Pathname.require_tree SPEC_ROOT, 'support/factories/**/*.rb'
 
 RSpec.configure do |config|
   config.include Test::Database, :db

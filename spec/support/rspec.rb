@@ -18,14 +18,12 @@ RSpec.configure do |config|
   config.filter_run_when_matching :focus
 
   config.disable_monkey_patching!
-  config.example_status_persistence_file_path = "./tmp/rspec-examples.txt"
+  config.example_status_persistence_file_path = './tmp/rspec-examples.txt'
   config.warnings = true
 
-  if config.files_to_run.one?
-    config.default_formatter = "doc"
-  end
+  config.default_formatter = 'doc' if config.files_to_run.one?
 
-  config.formatter = ENV.fetch("CI", false) == "true" ? :progress : :documentation
+  config.formatter = ENV.fetch('CI', false) == 'true' ? :progress : :documentation
 
   config.profile_examples = 10
 

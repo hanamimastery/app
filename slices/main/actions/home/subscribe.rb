@@ -3,9 +3,10 @@
 module Main
   module Actions
     module Home
+      # Subscribes to Youtube Channel
       class Subscribe < Main::Action
         def handle(*, response)
-          response.body = "Subscribed!"
+          response.body = 'Subscribed!'
         end
       end
     end

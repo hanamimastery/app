@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-guard :rspec, cmd: "NO_COVERAGE=true bundle exec rspec --format documentation" do
-  require "guard/rspec/dsl"
+guard :rspec, cmd: 'NO_COVERAGE=true bundle exec rspec --format documentation' do
+  require 'guard/rspec/dsl'
 
   dsl = Guard::RSpec::Dsl.new self
 
@@ -15,7 +15,7 @@ guard :rspec, cmd: "NO_COVERAGE=true bundle exec rspec --format documentation" d
 
   # Hanami
   watch(rspec.spec_helper) { rspec.spec_dir }
-  watch(%r(^spec/hanami_helper.rb$)) { rspec.spec_dir }
-  watch(%r(^app/(.+)\.rb$)) { |result| rspec.spec.call("app/#{result[1]}") }
-  watch(%r(^slices/(.+)\.rb$)) { |result| rspec.spec.call("slices/#{result[1]}") }
+  watch(%r{^spec/hanami_helper.rb$}) { rspec.spec_dir }
+  watch(%r{^app/(.+)\.rb$}) { |result| rspec.spec.call("app/#{result[1]}") }
+  watch(%r{^slices/(.+)\.rb$}) { |result| rspec.spec.call("slices/#{result[1]}") }
 end
