@@ -1,9 +1,3 @@
-databases:
-  - name: hanamimastery
-    databaseName: hanamimastery
-    user: hanamimastery
-    plan: free
-
 services:
   - type: web
     plan: free # optional (defaults to starter)
