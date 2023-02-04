@@ -2,6 +2,7 @@ databases:
   - name: hanamimastery
     databaseName: hanamimastery
     user: hanamimastery
+    plan: free
 
 services:
   - type: web
@@ -22,5 +23,3 @@ services:
         fromDatabase:
           name: hanamimastery
           property: connectionString
-      # - key: RAILS_MASTER_KEY
-      #   sync: false
