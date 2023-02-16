@@ -1,4 +1,5 @@
 /coverage
+/secrets
 /tmp
 /log/*.log
 
