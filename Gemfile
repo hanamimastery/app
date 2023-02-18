@@ -30,6 +30,7 @@ group :analyze do
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'dotenv', '~> 2.8'
 end
 
