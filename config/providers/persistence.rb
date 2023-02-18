@@ -6,7 +6,12 @@ Hanami.app.register_provider :persistence, namespace: true do
     require 'rom/core'
     require 'rom/sql'
 
-    configuration = ROM::Configuration.new :sql, target['settings'].database_url
+    configuration = ROM::Configuration.new(
+      :sql,
+      target['settings'].database_url,
+      logger: Hanami.logger,
+      extensions: %i[pg_array pg_json]
+    )
 
     configuration.plugin :sql, relations: :instrumentation do |plugin_config|
       plugin_config.notifications = target['notifications']

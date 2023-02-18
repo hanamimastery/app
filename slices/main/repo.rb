@@ -4,5 +4,6 @@
 module Main
   # The main repository.
   class Repo < Hanamimastery::Repo
+    struct_namespace Main::Entities
   end
 end
