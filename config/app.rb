@@ -2,6 +2,8 @@
 
 require 'hanami'
 
+require 'hanamimastery/middleware/basic_auth'
+
 module Hanamimastery
   # Handles HTTP requests.
   class App < Hanami::App
