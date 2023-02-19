@@ -7,8 +7,9 @@ module Hanamimastery
   class App < Hanami::App
     config.actions.content_security_policy[:script_src] = 'https://unpkg.com'
     config.actions.content_security_policy[:style_src] = 'https://cdn.jsdelivr.net'
+    config.middleware.use Hanamimastery::Middleware::BasicAuth
 
-    environment(:bundle) do
+    environment(:development) do
       require 'byebug'
     end
   end
