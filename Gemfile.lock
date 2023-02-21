@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/dry-rb/dry-transformer.git
+  revision: 79fe867f842995e33be48eb2800b25245b142a53
+  branch: main
+  specs:
+    dry-transformer (1.0.1)
+      zeitwerk (~> 2.6)
+
+GIT
   remote: https://github.com/hanami/view.git
   revision: c1a6f60a989f1face809a6d8d61652748aee19a7
   branch: main
@@ -67,6 +75,12 @@ GEM
     dry-initializer (3.1.1)
     dry-logger (1.0.3)
     dry-logic (1.5.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
+    dry-matcher (1.0.0)
+      dry-core (~> 1.0, < 2)
+    dry-monads (1.6.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
@@ -380,6 +394,9 @@ DEPENDENCIES
   database_cleaner-sequel (~> 2.0)
   debug (~> 1.7)
   dotenv (~> 2.8)
+  dry-matcher
+  dry-monads
+  dry-transformer!
   dry-types (~> 1.7)
   erbse (~> 0.1)
   google-apis-drive_v3

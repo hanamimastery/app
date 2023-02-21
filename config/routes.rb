@@ -7,7 +7,7 @@ module Hanamimastery
       root to: 'home.show'
       post '/subscribe', to: 'home.subscribe'
 
-      get "/episodes", to: "episodes.index"
+      get '/episodes', to: 'episodes.index'
     end
   end
 end
