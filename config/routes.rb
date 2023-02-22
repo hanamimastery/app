@@ -8,6 +8,7 @@ module Hanamimastery
       post '/subscribe', to: 'home.subscribe'
 
       get '/episodes', to: 'episodes.index'
+      post '/episodes/fetch', to: 'episodes.fetch'
     end
   end
 end

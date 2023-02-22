@@ -12,6 +12,10 @@ module Hanamimastery
 
     commands :create, update: :by_pk
 
+    def multi_insert(array)
+      root.command(:create, result: :many).call(array)
+    end
+
     def all
       root
     end

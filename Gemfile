@@ -18,6 +18,10 @@ gem 'hanami-controller', '~> 2.0'
 gem 'hanami-router', '~> 2.0'
 gem 'hanami-validations', '~> 2.0'
 gem 'hanami-view', github: 'hanami/view', branch: 'main'
+
+gem 'front_matter_parser'
+gem 'octokit'
+
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.0'
 gem 'refinements', '~> 10.0'

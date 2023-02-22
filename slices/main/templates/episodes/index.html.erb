@@ -9,7 +9,13 @@
   </div>
 </section>
 
-<section>
+<section class="section">
+  <button class="button is-primary" hx-post="episodes/fetch" hx-swap="beforebegin" hx-target="#recent-episodes">
+    Fetch drafts
+  </button>
+</section>
+
+<section class="section">
   <table class="table is-stripped is-hoverable is-fullwidth">
     <thead>
       <tr>
@@ -28,13 +34,17 @@
         <th><abbr title="Won">W</abbr></th>
       </tr>
     </tfoot>
-    <tbody>
+    <tbody id="recent-episodes">
       <%- episodes.each do |episode| %>
-        <tr>
+        <tr id="episode-<%= episode.id %>">
           <th><%= episode.source_id %></th>
           <td><img src="<%= episode.cover[:small]%>" class="is6b9" /></td>
           <td><%= episode.title %></td>
-          <td>Edit Button</td>
+          <td>
+            <button class="button is-primary" hx-patch="episodes/<%= episode.id %>/refresh" hx-swap="innerHTML" hx-target="#episode-<%= episode.id %>">
+              Refresh
+            </button>
+          </td>
         </tr>
       <%- end %>
       </tbody>
