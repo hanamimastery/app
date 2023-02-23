@@ -4,3 +4,7 @@
 /log/*.log
 
 .resultset.json
+
+.byebug_history
+.env.development
+gh.json

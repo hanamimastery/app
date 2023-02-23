@@ -4,6 +4,9 @@ ruby '3.2.0'
 
 source 'https://rubygems.org'
 
+gem 'dry-monads'
+gem 'dry-matcher'
+gem 'dry-transformer', github: 'dry-rb/dry-transformer', branch: 'main'
 gem 'dry-types', '~> 1.7'
 gem 'erbse', '~> 0.1'
 
@@ -15,6 +18,10 @@ gem 'hanami-controller', '~> 2.0'
 gem 'hanami-router', '~> 2.0'
 gem 'hanami-validations', '~> 2.0'
 gem 'hanami-view', github: 'hanami/view', branch: 'main'
+
+gem 'front_matter_parser'
+gem 'octokit'
+
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.0'
 gem 'refinements', '~> 10.0'
@@ -30,6 +37,7 @@ group :analyze do
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'dotenv', '~> 2.8'
 end
 

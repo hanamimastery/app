@@ -1,0 +1,8 @@
+<%- episodes.each do |episode| %>
+  <tr>
+    <th><%= episode.source_id %></th>
+    <td><img src="<%= episode.cover[:small]%>" class="is6b9" /></td>
+    <td><%= episode.title %></td>
+    <td>Edit Button</td>
+  </tr>
+<%- end %>

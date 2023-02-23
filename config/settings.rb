@@ -6,5 +6,7 @@ module Hanamimastery
     setting :database_url
     setting :google_drive_id
     setting :google_application_credentials
+
+    setting :github_access_token
   end
 end

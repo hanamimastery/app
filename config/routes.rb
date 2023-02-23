@@ -6,6 +6,9 @@ module Hanamimastery
     slice :main, at: '/' do
       root to: 'home.show'
       post '/subscribe', to: 'home.subscribe'
+
+      get '/episodes', to: 'episodes.index'
+      post '/episodes/fetch', to: 'episodes.fetch'
     end
   end
 end

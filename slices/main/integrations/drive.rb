@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Hanamimastery
-  module Repositories
+module Main
+  module Integrations
     # Maintains content of Google Drive Storage
     #
     class Drive

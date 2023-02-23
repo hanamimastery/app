@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/dry-rb/dry-transformer.git
+  revision: 79fe867f842995e33be48eb2800b25245b142a53
+  branch: main
+  specs:
+    dry-transformer (1.0.1)
+      zeitwerk (~> 2.6)
+
+GIT
   remote: https://github.com/hanami/view.git
   revision: c1a6f60a989f1face809a6d8d61652748aee19a7
   branch: main
@@ -17,6 +25,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     amazing_print (1.4.0)
     ast (2.4.2)
+    byebug (11.1.3)
     caliber (0.24.0)
       rubocop (~> 1.43)
       rubocop-performance (~> 1.15)
@@ -69,6 +78,12 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
+    dry-matcher (1.0.0)
+      dry-core (~> 1.0, < 2)
+    dry-monads (1.6.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
     dry-monitor (1.0.1)
       dry-configurable (~> 1.0, < 2)
       dry-core (~> 1.0, < 2)
@@ -91,8 +106,6 @@ GEM
       dry-configurable (~> 1.0, < 2)
       dry-core (~> 1.0, < 2)
       dry-inflector (~> 1.0, < 2)
-    dry-transformer (1.0.1)
-      zeitwerk (~> 2.6)
     dry-types (1.7.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0, < 2)
@@ -120,6 +133,7 @@ GEM
       websocket-driver (>= 0.6, < 0.8)
     ffi (1.15.5)
     formatador (1.1.0)
+    front_matter_parser (1.0.1)
     google-apis-core (0.11.0)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (>= 0.16.2, < 2.a)
@@ -229,6 +243,9 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    octokit (6.0.1)
+      faraday (>= 1, < 3)
+      sawyer (~> 0.9)
     os (1.1.4)
     parallel (1.22.1)
     parser (3.2.0.0)
@@ -338,6 +355,9 @@ GEM
       rubocop (>= 0.53.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    sawyer (0.9.2)
+      addressable (>= 2.3.5)
+      faraday (>= 0.17.3, < 3)
     sequel (5.64.0)
     shellany (0.0.1)
     signet (0.17.0)
@@ -372,14 +392,19 @@ PLATFORMS
 
 DEPENDENCIES
   amazing_print (~> 1.4)
+  byebug
   caliber (~> 0.21)
   capybara (~> 3.38)
   cuprite (~> 0.14)
   database_cleaner-sequel (~> 2.0)
   debug (~> 1.7)
   dotenv (~> 2.8)
+  dry-matcher
+  dry-monads
+  dry-transformer!
   dry-types (~> 1.7)
   erbse (~> 0.1)
+  front_matter_parser
   google-apis-drive_v3
   googleauth
   guard-rspec (~> 4.7)
@@ -391,6 +416,7 @@ DEPENDENCIES
   hanami-view!
   launchy (~> 2.5)
   localhost (~> 1.1)
+  octokit
   pg (~> 1.4)
   puma (~> 6.0)
   rack-test (~> 2.0)
