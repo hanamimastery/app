@@ -13,10 +13,11 @@ gem 'erbse', '~> 0.1'
 gem 'googleauth'
 gem 'google-apis-drive_v3'
 
-gem 'hanami', '~> 2.0'
-gem 'hanami-controller', '~> 2.0'
-gem 'hanami-router', '~> 2.0'
-gem 'hanami-validations', '~> 2.0'
+gem "hanami", github: "hanami/hanami", branch: "main"
+gem "hanami-router", github: "hanami/router", branch: "main"
+gem "hanami-controller", github: "hanami/controller", branch: "main"
+gem "hanami-validations", github: "hanami/validations", branch: "main"
+gem "hanami-webconsole", github: "hanami/webconsole", branch: "main"
 gem 'hanami-view', github: 'hanami/view', branch: 'main'
 
 gem 'front_matter_parser'
