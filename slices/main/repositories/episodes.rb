@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
 require 'dry/transformer'
-module T
-  extend Dry::Transformer::Registry
-
-  import :deep_symbolize_keys, from: Dry::Transformer::HashTransformations
-  import :reject_keys, from: Dry::Transformer::HashTransformations
-end
-
 module Main
   module Repositories
     class Episodes < Repo[:episodes]
+      commands :create, update: :by_pk, delete: :by_pk
+
+      TRANSFORMATION = Transformations::FrontMatterToDB.new
+
       # Transforms episode front_matter merged with github_file object hash
       #   into the input interpretable by episodes relation
       # @example
@@ -19,22 +16,19 @@ module Main
       class GithubEpisodeChangeset < ROM::Changeset::Create[:episodes]
         command_options result: :many
 
+        extend Deps[transformation: 'transformations.front_matter_to_db']
+
         map do |tuple|
-          transformed = T[:reject_keys].call(T[:deep_symbolize_keys].call(tuple), [:id]).
-            transform_keys do |key|
-              case key
-              when :path then :source_path
-              when :url then :source_url
-              else
-                key
-              end
-            end
-          transformed.merge(source_id: transformed[:source_path].split('/').last.split(/-/).first.to_i)
+          TRANSFORMATION.call(tuple)
         end
       end
 
+      def by_source_id(id)
+        episodes.where(source_id: id).one!
+      end
+
       def recent
-        episodes.order { source_id.desc }
+        episodes.order { source_id.desc }.to_a
       end
 
       def source_paths
