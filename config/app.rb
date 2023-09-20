@@ -16,6 +16,7 @@ module Hanamimastery
 
     config.inflections do |inflections|
       inflections.acronym 'DB'
+      inflections.acronym 'HTMX'
     end
 
     environment(:development) do
