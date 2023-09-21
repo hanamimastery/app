@@ -19,8 +19,10 @@ module Hanamimastery
       inflections.acronym 'HTMX'
     end
 
+    # :nocov:
     environment(:development) do
       require 'byebug'
     end
+    # :nocov:
   end
 end
