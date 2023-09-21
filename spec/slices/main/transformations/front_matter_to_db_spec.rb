@@ -81,10 +81,21 @@ RSpec.describe Main::Transformations::FrontMatterToDB do
     context 'when already renamed keys provided' do
       let(:input) { { 'source_id' => 4 } }
 
-      it 'returns transformed subhash' do
+      it 'allows keys to be passed' do
         response = subject.call(input)
         expect(response).to eq(
           { source_id: 4 }
+        )
+      end
+    end
+
+    context 'when content is added' do
+      let(:input) { { 'content' => 'sample' } }
+
+      it 'returns transformed subhash' do
+        response = subject.call(input)
+        expect(response).to eq(
+          { content: 'sample' }
         )
       end
     end
