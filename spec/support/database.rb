@@ -17,13 +17,14 @@ using Refinements::Pathnames
 
 DatabaseCleaner[:sequel].strategy = :transaction
 
-Pathname.require_tree SPEC_ROOT, 'support/factories/**/*.rb'
-
 RSpec.configure do |config|
   config.include Test::Database, :db
 
   config.before :suite do
     Hanami.app.start :persistence
+  end
+
+  config.before :each do
     DatabaseCleaner[:sequel].clean_with :truncation
   end
 

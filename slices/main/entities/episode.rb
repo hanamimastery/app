@@ -22,6 +22,9 @@ module Main
         end
       end
 
+      # Provides a hash of thumbnail URLs with host included
+      # @return [Hash]
+      #
       def cover
         CoverTransformation.new.call(thumbnail)
       end
@@ -45,9 +48,21 @@ module Main
       # @return [Boolean]
       #
       def published?
-        return false unless respond_to?(:published)
-
         published == true
+      end
+
+      # Determines if the episode is scheduled
+      # @return [Boolean]
+      #
+      def scheduled?
+        status == STATUSES[:scheduled]
+      end
+
+      # Determines if the episode is WIP
+      # @return [Boolean]
+      #
+      def draft?
+        status == STATUSES[:draft]
       end
 
       # Figures out the status of the episode based on it's attributes
