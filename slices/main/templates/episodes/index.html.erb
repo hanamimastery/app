@@ -20,32 +20,24 @@
     <thead>
       <tr>
         <th><abbr title="Position">ID</abbr></th>
-        <th>Team</th>
         <th><abbr title="Cover Image">Cover</abbr></th>
         <th><abbr title="Title">Title</abbr></th>
-        <th><abbr title="Drawn">Actions</abbr></th>
+        <th><abbr title="Status">Status</abbr></th>
+        <th><abbr title="Actions">Actions</abbr></th>
       </tr>
     </thead>
     <tfoot>
       <tr>
-        <th><abbr title="Position">Pos</abbr></th>
-        <th>Team</th>
-        <th><abbr title="Played">Pld</abbr></th>
-        <th><abbr title="Won">W</abbr></th>
+        <th><abbr title="Position">ID</abbr></th>
+        <th><abbr title="Cover Image">Cover</abbr></th>
+        <th><abbr title="Title">Title</abbr></th>
+        <th><abbr title="Status">Status</abbr></th>
+        <th><abbr title="Actions">Actions</abbr></th>
       </tr>
     </tfoot>
     <tbody id="recent-episodes">
       <% episodes.each do |episode| %>
-        <tr id="episode-<%= episode.id %>">
-          <th><%= episode.source_id %></th>
-          <td><img src="<%= episode.cover[:small]%>" class="is6b9" /></td>
-          <td><%= episode.title %></td>
-          <td>
-            <button class="button is-primary" hx-patch="episodes/<%= episode.id %>/refresh" hx-swap="innerHTML" hx-target="#episode-<%= episode.id %>">
-              Refresh
-            </button>
-          </td>
-        </tr>
+        <%= render "index_row", episode: episode %>
       <% end %>
       </tbody>
     </table>

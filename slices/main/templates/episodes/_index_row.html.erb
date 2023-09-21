@@ -1,0 +1,10 @@
+<tr id="episode-<%= episode.id %>">
+  <th><%= episode.source_id %></th>
+  <td><img src="<%= episode.cover[:small]%>" class="is6b9" /></td>
+  <td><%= episode.title %></td>
+  <th><abbr title="Status"><%= episode.status_icon %></abbr></th>
+  <td>
+    <%= render "button_refresh", episode: episode %>
+    <%= render "button_publish", episode: episode unless episode.published? %>
+  </td>
+</tr>

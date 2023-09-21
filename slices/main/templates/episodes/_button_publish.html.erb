@@ -1,0 +1,7 @@
+<button
+  class="button is-green"
+  hx-patch="episodes/<%= episode.id %>/publish"
+  hx-swap="outerHTML" hx-target="#episode-<%= episode.id %>"
+>
+  Publish
+</button>
