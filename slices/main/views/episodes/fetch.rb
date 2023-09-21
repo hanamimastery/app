@@ -4,8 +4,7 @@ module Main
   module Views
     module Episodes
       # Renders Fetch view.
-      class Fetch < Main::View
-        config.layout = false
+      class Fetch < Main::ViewHTMX
         expose :episodes
       end
     end
