@@ -25,6 +25,7 @@ ENV['HANAMI_ENV'] ||= 'test'
 require 'hanami/prepare'
 
 Pathname.require_tree __dir__, 'support/shared_contexts/**/*.rb'
+Pathname.require_tree __dir__, 'support/mocks/**/*.rb'
 
 require_relative 'support/rspec'
 
