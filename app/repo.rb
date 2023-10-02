@@ -22,6 +22,11 @@ module Hanamimastery
 
     def find(id)
       root.by_pk(id).one!
+    rescue PG::UndefinedFunction, PG::InvalidTextRepresentation, ROM::TupleCountMismatchError
+      raise Errors::RecordNotFound.new(
+        "Could not find record #{root.mapper.model} with primary key",
+        id: id
+      )
     end
   end
 end

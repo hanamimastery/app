@@ -25,6 +25,11 @@ module Main
       def entries
         client.tree(REPO, base_tree_sha, recursive: true).tree.
           select { |t| t.path.include?('data/episodes/') }
+      rescue Octokit::Error.
+        error = Hanamimastery::Errors::GithublServiceError.new(
+          'Github data fetching error'
+        )
+        raise error
       end
 
       # Returns the Github Entry object representing pointer to a given episode file.
@@ -42,7 +47,13 @@ module Main
       #     }
       #
       def find(id)
-        entries.find { |e| e.path.split('/').last.match(/^#{id}-/) }
+        entry = entries.find { |e| e.path.split('/').last.match(/^#{id}-/) }
+        return entry if entry
+
+        raise Hanamimastery::Errors::RecordNotFound.new(
+          'Could not find the requested file in Github repository',
+          source_id: id
+        )
       end
 
       # Fetches the file content based on the given file path.
@@ -50,17 +61,36 @@ module Main
       #  @param [String] The path to the given file in the repository tree
       #  @return [String] A decoded content of the fethed file.
       #
+      # def fetch(path)
+      #   res = client.contents(
+      #     REPO,
+      #     path: path,
+      #     query: { ref: REF }
+      #   )
+      #   Base64.decode64(res.content)
+      # rescue Octokit::Error => e
+      #   error = Hanamimastery::Errors::GithubServiceError.new(
+      #     'Fetching content of the requested file failed',
+      #     source_path: path
+      #   )
+      #   raise error
+      # end
+      #
       def fetch(path)
-        res = client.contents(
-          REPO,
-          path: path,
-          query: { ref: REF }
-        )
+        res = client.contents(REPO, path: path, query: { ref: REF })
         Base64.decode64(res.content)
+      rescue StandardError
+        error = Hanamimastery::Errors::GithubServiceError.new(
+          "Cannot fetch the file content from GitHub repository",
+          severity: :no_action,
+          source_path: path
+        )
+        raise error
       end
 
       private
 
+      # Gets the sha of the tree the latest commit in REF points to.
       # @api_private
       #
       def base_tree_sha

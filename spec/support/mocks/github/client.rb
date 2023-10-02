@@ -66,7 +66,13 @@ module Mocks
       #     }
       #
       def find(id)
-        entries.find { |e| e[:path].split('/').last.match(/^#{id}-/) }
+        entry = entries.find { |e| e[:path].split('/').last.match(/^#{id}-/) }
+        return entry if entry
+
+        raise Hanamimastery::Errors::RecordNotFound.new(
+          'Could not find the requested file in Github repository',
+          source_id: id
+        )
       end
 
       # Fetches the file content based on the given file path.
@@ -75,8 +81,6 @@ module Mocks
       #  @return [String] A decoded content of the fethed file.
       #
       def fetch(path)
-        puts __FILE__
-        puts __dir__
         File.read("#{__dir__}/#{path}")
       end
 
