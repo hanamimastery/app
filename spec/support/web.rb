@@ -13,4 +13,5 @@ end
 
 RSpec.configure do |config|
   config.include Capybara::DSL, Capybara::RSpecMatchers, :web
+  config.include_context "with Hanami application", type: :feature
 end

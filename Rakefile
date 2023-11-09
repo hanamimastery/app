@@ -6,9 +6,6 @@ require 'reek/rake/task'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
-require 'rom/sql/rake_task'
-require 'hanami/prepare'
-
 Reek::Rake::Task.new
 RSpec::Core::RakeTask.new
 RuboCop::RakeTask.new
@@ -18,10 +15,15 @@ task analyze: %i[reek rubocop]
 
 task default: %i[analyze spec]
 
+task :environment do
+  require_relative "config/app"
+  require "hanami/prepare"
+end
+
 namespace :db do
-  task :setup do
-    Hanamimastery::App.prepare :persistence
-    config = Hanamimastery::Container['persistence.config']
+  task setup: :environment do
+    Hanami.app.prepare :persistence
+    config = Hanami.app['persistence.config']
     ROM::SQL::RakeSupport.env = ROM.container(config)
   end
 

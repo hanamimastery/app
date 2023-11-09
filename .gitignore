@@ -8,3 +8,5 @@
 .byebug_history
 .env.development
 gh.json
+
+node_modules

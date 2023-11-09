@@ -6,19 +6,9 @@ SPEC_ROOT = Pathname(__dir__).realpath.freeze
 require 'bundler/setup'
 Bundler.require :tools
 
-require 'simplecov'
-
-unless ENV['NO_COVERAGE']
-  SimpleCov.start do
-    add_filter %r{^/spec/}
-    enable_coverage :branch
-    enable_coverage_for_eval
-    minimum_coverage_by_file line: 95, branch: 95
-  end
-end
+require 'support/simplecov' unless ENV['NO_COVERAGE']
 
 require 'refinements'
-
 using Refinements::Pathnames
 
 ENV['HANAMI_ENV'] ||= 'test'

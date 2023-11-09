@@ -7,9 +7,9 @@ module Hanamimastery
 
       SEVERITY = {
         0 => :no_action,
-        1 => :low,
+        1 => :urgent,
         2 => :medium,
-        3 => :urgent
+        3 => :low
       }
 
       def self.code(code_string)
@@ -31,7 +31,6 @@ module Hanamimastery
         @metadata = details
         super(default_message)
       end
-
 
       def to_h
         {
@@ -69,7 +68,6 @@ module Hanamimastery
       code 'HM0000'
       severity :low
     end
-
 
     # Indicates that input data is incorrect
     #
