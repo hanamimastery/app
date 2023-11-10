@@ -18,6 +18,7 @@ Hanami.app.register_provider :persistence, namespace: true do
     end
 
     configuration.plugin :sql, relations: :auto_restrictions
+    configuration.plugin(:sql, relations: :pagination)
 
     register 'config', configuration
     register 'db', configuration.gateways[:default].connection

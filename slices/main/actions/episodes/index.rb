@@ -4,11 +4,8 @@ module Main
   module Actions
     module Episodes
       class Index < Main::Action
-        include Deps[repo: 'repositories.episodes']
-
-        def handle(*, response)
-          episodes = repo.recent
-          response.body = response.render view, episodes: episodes
+        def handle(request, response)
+          paginate(request.params) { response.render view }
         end
       end
     end

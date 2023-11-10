@@ -4,6 +4,7 @@ ruby '3.2.0'
 
 source 'https://rubygems.org'
 
+gem 'dry-effects'
 gem 'dry-monads'
 gem 'dry-matcher'
 gem 'dry-transformer', github: 'dry-rb/dry-transformer', branch: 'main'

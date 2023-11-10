@@ -3,9 +3,13 @@
 module Main
   module Views
     module Episodes
-      # Renders show view.
+      # Renders index view.
       class Index < Main::View
-        expose :episodes
+        include Deps[repo: 'repositories.episodes']
+
+        expose :episodes do
+          repo.recent
+        end
       end
     end
   end

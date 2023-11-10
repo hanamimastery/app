@@ -6,7 +6,7 @@ module Main
     root to: 'home.show'
     post '/subscribe', to: 'home.subscribe'
 
-    get '/episodes', to: 'episodes.index'
+    get '/episodes', to: 'episodes.index', as: :episodes
     post '/episodes/fetch', to: 'episodes.fetch'
 
     patch '/episodes/:id/refresh', to: 'episodes.refresh'

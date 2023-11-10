@@ -33,15 +33,15 @@ module Main
       end
 
       def by_source_id(id)
-        episodes.where(source_id: id).one!
+        default_scope.where(source_id: id).one!
       end
 
       def recent
-        episodes.order { source_id.desc }.to_a
+        default_scope.order { source_id.desc }.to_a
       end
 
       def source_paths
-        episodes.pluck(:source_path)
+        default_scope.pluck(:source_path)
       end
 
       # allows to update record, passing down

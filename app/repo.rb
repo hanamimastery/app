@@ -6,6 +6,8 @@ require 'rom-repository'
 module Hanamimastery
   # The application repository.
   class Repo < ROM::Repository::Root
+    include Hanamimastery::Utils::Pagination::Reader
+
     include Deps[container: 'persistence.rom']
 
     auto_struct true
@@ -17,7 +19,7 @@ module Hanamimastery
     end
 
     def all
-      root
+      default_scope.to_a
     end
 
     def find(id)
@@ -27,6 +29,16 @@ module Hanamimastery
         "Could not find record #{root.mapper.model} with primary key",
         id: id
       )
+    end
+
+    private
+
+    def default_scope
+      root.
+        per_page(pagination.size).
+        page(pagination.number)
+    rescue Hanamimastery::Utils::Pagination::PaginationUnsetError
+      root
     end
   end
 end
