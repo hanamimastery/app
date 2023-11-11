@@ -8,5 +8,7 @@ module Hanamimastery
     setting :google_application_credentials
 
     setting :github_access_token
+
+    setting :font_awesome_kit
   end
 end
