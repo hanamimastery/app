@@ -7,58 +7,58 @@ RSpec.describe Main::Repositories::Episodes do
         id: 1,
         url: 'https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/b7beb55796cb9586b05b944a3a2adab5f3e3aa84',
         path: 'fixtures/1-draft-episode',
-        author: "swilgosz",
-        topics: ["hanami"],
-        title: "This is draft episode",
+        author: 'swilgosz',
+        topics: ['hanami'],
+        title: 'This is draft episode',
         published: false,
         published_at: nil,
-        modified_at: "2022-02-06",
+        modified_at: '2022-02-06',
         aliases: ['HMEP001'],
-        video_id: "Gx4eqU-oDL8",
+        video_id: 'Gx4eqU-oDL8',
         thumbnail: {
-          full: "images/episodes/1/cover-full.jpeg",
-          big: "images/episodes/1/cover-big.jpeg",
-          small: "images/episodes/1/cover-small.jpeg"
+          full: 'images/episodes/1/cover-full.jpeg',
+          big: 'images/episodes/1/cover-big.jpeg',
+          small: 'images/episodes/1/cover-small.jpeg'
         },
         discussions: {
-          twitter: "https://twitter.com/HanamiMastery/status/1",
+          twitter: 'https://twitter.com/HanamiMastery/status/1',
           reddit: {
-            ruby: "https://www.reddit.com/r/ruby/comments/o28dun/1",
+            ruby: 'https://www.reddit.com/r/ruby/comments/o28dun/1'
           }
         },
-        source: "https://github.com/hanamimastery/episodes/tree/main/001"
+        source: 'https://github.com/hanamimastery/episodes/tree/main/001'
       },
       {
         id: 3,
         url: 'https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/b7beb55796cb9586b05b944a3a2adab5f3e3aa84',
         path: 'fixtures/3-published-episode',
-        author: "swilgosz",
-        topics: ["hanami"],
-        title: "This is published episode",
+        author: 'swilgosz',
+        topics: ['hanami'],
+        title: 'This is published episode',
         published: true,
-        published_at: "2023-09-01",
-        modified_at: "2022-02-06",
+        published_at: '2023-09-01',
+        modified_at: '2022-02-06',
         aliases: ['HMEP002'],
-        video_id: "Gx4eqU-oDL8",
+        video_id: 'Gx4eqU-oDL8',
         thumbnail: {
-          full: "images/episodes/3/cover-full.jpeg",
-          big: "images/episodes/3/cover-big.jpeg",
-          small: "images/episodes/3/cover-small.jpeg"
+          full: 'images/episodes/3/cover-full.jpeg',
+          big: 'images/episodes/3/cover-big.jpeg',
+          small: 'images/episodes/3/cover-small.jpeg'
         },
         discussions: {
-          twitter: "https://twitter.com/HanamiMastery/status/3",
+          twitter: 'https://twitter.com/HanamiMastery/status/3',
           reddit: {
-            ruby: "https://www.reddit.com/r/ruby/comments/o28dun/3",
+            ruby: 'https://www.reddit.com/r/ruby/comments/o28dun/3'
           }
         },
-        source: "https://github.com/hanamimastery/episodes/tree/main/003"
+        source: 'https://github.com/hanamimastery/episodes/tree/main/003'
       }
     ]
   end
 
-  describe "#create" do
+  describe '#create' do
     it 'creates multiple records with correct transformation' do
-      expect{ subject.create(tuples) }.to change { subject.episodes.count }.by(2)
+      expect { subject.create(tuples) }.to change { subject.episodes.count }.by(2)
       episode = subject.by_source_id(1)
 
       aggregate_failures do
@@ -67,9 +67,9 @@ RSpec.describe Main::Repositories::Episodes do
         expect(episode.published).to eq(false)
         expect(episode.cover).to eq(
           {
-            full: "https://hanamimastery.com/images/episodes/1/cover-full.jpeg",
-            big: "https://hanamimastery.com/images/episodes/1/cover-big.jpeg",
-            small: "https://hanamimastery.com/images/episodes/1/cover-small.jpeg"
+            full: 'https://hanamimastery.com/images/episodes/1/cover-full.jpeg',
+            big: 'https://hanamimastery.com/images/episodes/1/cover-big.jpeg',
+            small: 'https://hanamimastery.com/images/episodes/1/cover-small.jpeg'
           }
         )
         expect(episode.publication_url).to eq('')
@@ -83,7 +83,7 @@ RSpec.describe Main::Repositories::Episodes do
     end
   end
 
-  describe "#update" do
+  describe '#update' do
     it 'updates record' do
       subject.create(tuples[1])
       episode = subject.by_source_id(3)
@@ -94,7 +94,7 @@ RSpec.describe Main::Repositories::Episodes do
     end
   end
 
-  describe "#recent" do
+  describe '#recent' do
     before { subject.create(tuples) }
 
     it 'returns records in proper order' do
@@ -102,7 +102,7 @@ RSpec.describe Main::Repositories::Episodes do
     end
   end
 
-  describe "source_paths" do
+  describe 'source_paths' do
     before { subject.create(tuples) }
 
     it 'returns records in proper order' do

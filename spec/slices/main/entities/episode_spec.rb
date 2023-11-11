@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe Main::Entities::Episode do
-  let(:params) { { } }
+  let(:params) { {} }
   let(:episode) { build(:episode, params) }
 
-  describe "#version" do
+  describe '#version' do
     let(:params) { { source_url: 'git.repo/my/version_number' } }
 
     it 'returns blob version from the git URL' do
@@ -12,17 +12,17 @@ RSpec.describe Main::Entities::Episode do
     end
   end
 
-  describe "#cover" do
-    it "builds full URLs for cover images" do
+  describe '#cover' do
+    it 'builds full URLs for cover images' do
       expect(episode.cover).to eq({
-        full: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-full.jpeg",
-        big: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-big.jpeg",
-        small: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-small.jpeg",
-      })
+                                    full: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-full.jpeg",
+                                    big: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-big.jpeg",
+                                    small: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-small.jpeg"
+                                  })
     end
   end
 
-  describe "#publication_url" do
+  describe '#publication_url' do
     context 'when published' do
       let(:params) { { published: true } }
 
@@ -40,7 +40,7 @@ RSpec.describe Main::Entities::Episode do
     end
   end
 
-  describe "#status" do
+  describe '#status' do
     context 'when draft' do
       let(:params) { { published: false, published_at: nil } }
 
@@ -55,7 +55,7 @@ RSpec.describe Main::Entities::Episode do
     end
 
     context 'when scheudled' do
-      let(:params) { { published: false, published_at: "2022-08-09" } }
+      let(:params) { { published: false, published_at: '2022-08-09' } }
 
       it 'is scheduled' do
         aggregate_failures do
@@ -68,7 +68,7 @@ RSpec.describe Main::Entities::Episode do
     end
 
     context 'when published' do
-      let(:params) { { published: true, published_at: "2022-08-20" } }
+      let(:params) { { published: true, published_at: '2022-08-20' } }
 
       it 'is published' do
         aggregate_failures do

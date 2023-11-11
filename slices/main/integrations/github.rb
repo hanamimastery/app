@@ -23,10 +23,10 @@ module Main
       #     }
       #
       def entries
-        client.tree(REPO, base_tree_sha, recursive: true).tree.
-          select { |t| t.path.include?('data/episodes/') }
-      rescue Octokit::Error.
-        error = Hanamimastery::Errors::GithublServiceError.new(
+        client.tree(REPO, base_tree_sha, recursive: true).tree
+              .select { |t| t.path.include?('data/episodes/') }
+      rescue Octokit::Error
+        .error = Hanamimastery::Errors::GithublServiceError.new(
           'Github data fetching error'
         )
         raise error
@@ -77,11 +77,11 @@ module Main
       # end
       #
       def fetch(path)
-        res = client.contents(REPO, path: path, query: { ref: REF })
+        res = client.contents(REPO, path:, query: { ref: REF })
         Base64.decode64(res.content)
       rescue StandardError
         error = Hanamimastery::Errors::GithubServiceError.new(
-          "Cannot fetch the file content from GitHub repository",
+          'Cannot fetch the file content from GitHub repository',
           severity: :no_action,
           source_path: path
         )
@@ -95,7 +95,7 @@ module Main
       #
       def base_tree_sha
         latest_commit_sha = client.ref(REPO, REF).object.sha
-        base_tree_sha = client.commit(REPO, latest_commit_sha).commit.tree.sha
+        client.commit(REPO, latest_commit_sha).commit.tree.sha
       end
     end
   end

@@ -22,31 +22,31 @@ module Mocks
       def entries
         [
           {
-            path: "fixtures/1-published-episode.md",
-            mode: "100644",
-            type: "blob",
-            sha: "3d152f3a8af52e13d0d2e12eed15af99e1ee8e45",
+            path: 'fixtures/1-published-episode.md',
+            mode: '100644',
+            type: 'blob',
+            sha: '3d152f3a8af52e13d0d2e12eed15af99e1ee8e45',
             size: 7074,
             url:
-            "https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/3d152f3a8af52e13d0d2e12eed15af99e1ee8e45"
+            'https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/3d152f3a8af52e13d0d2e12eed15af99e1ee8e45'
           },
           {
-            path: "fixtures/2-draft-episode.md",
-            mode: "100644",
-            type: "blob",
-            sha: "3d152f3a8af52e13d0d2e12eed15af99e1ee8e45",
+            path: 'fixtures/2-draft-episode.md',
+            mode: '100644',
+            type: 'blob',
+            sha: '3d152f3a8af52e13d0d2e12eed15af99e1ee8e45',
             size: 7074,
             url:
-            "https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/3d152f3a8af52e13d0d2e12eed15af99e1ee8e45"
+            'https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/3d152f3a8af52e13d0d2e12eed15af99e1ee8e45'
           },
           {
-            path: "fixtures/3-scheduled-episode.md",
-            mode: "100644",
-            type: "blob",
-            sha: "3d152f3a8af52e13d0d2e12eed15af99e1ee8e45",
+            path: 'fixtures/3-scheduled-episode.md',
+            mode: '100644',
+            type: 'blob',
+            sha: '3d152f3a8af52e13d0d2e12eed15af99e1ee8e45',
             size: 7074,
             url:
-            "https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/3d152f3a8af52e13d0d2e12eed15af99e1ee8e45"
+            'https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/3d152f3a8af52e13d0d2e12eed15af99e1ee8e45'
           }
         ]
       end
@@ -84,7 +84,7 @@ module Mocks
         File.read("#{__dir__}/#{path}")
       end
 
-      def commit()
+      def commit
         # file_name = File.join("some_dir", "new_file.txt")
         # blob_sha = github.create_blob(repo, Base64.encode64(my_content), "base64")
         # sha_new_tree = github.create_tree(repo,

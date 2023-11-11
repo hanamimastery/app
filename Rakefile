@@ -16,8 +16,8 @@ task analyze: %i[reek rubocop]
 task default: %i[analyze spec]
 
 task :environment do
-  require_relative "config/app"
-  require "hanami/prepare"
+  require_relative 'config/app'
+  require 'hanami/prepare'
 end
 
 namespace :db do

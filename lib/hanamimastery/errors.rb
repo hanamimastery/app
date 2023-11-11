@@ -10,7 +10,7 @@ module Hanamimastery
         1 => :urgent,
         2 => :medium,
         3 => :low
-      }
+      }.freeze
 
       def self.code(code_string)
         define_method(:code) { code_string }
@@ -34,10 +34,10 @@ module Hanamimastery
 
       def to_h
         {
-          reason: reason,
-          code: code,
-          severity: severity,
-          metadata: metadata
+          reason:,
+          code:,
+          severity:,
+          metadata:
         }
       end
 

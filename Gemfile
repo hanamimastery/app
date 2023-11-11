@@ -5,21 +5,21 @@ ruby '3.2.0'
 source 'https://rubygems.org'
 
 gem 'dry-effects'
-gem 'dry-monads'
 gem 'dry-matcher'
+gem 'dry-monads'
 gem 'dry-transformer', github: 'dry-rb/dry-transformer', branch: 'main'
 gem 'dry-types', '~> 1.7'
 gem 'erbse', '~> 0.1'
 
-gem 'googleauth'
 gem 'google-apis-drive_v3'
+gem 'googleauth'
 
 gem 'hanami', github: 'hanami/hanami', branch: 'main'
-gem 'hanami-router', github: 'hanami/router', branch: 'main'
+gem 'hanami-assets', github: 'hanami/assets', branch: 'main'
 gem 'hanami-controller', github: 'hanami/controller', branch: 'main'
+gem 'hanami-router', github: 'hanami/router', branch: 'main'
 gem 'hanami-validations', github: 'hanami/validations', branch: 'main'
 gem 'hanami-view', github: 'hanami/view', branch: 'main'
-gem 'hanami-assets', github: 'hanami/assets', branch: 'main'
 
 gem 'front_matter_parser'
 gem 'octokit'
@@ -39,11 +39,11 @@ group :analyze do
 end
 
 group :cli, :development do
-  gem "hanami-reloader", "~> 2.1.0.rc"
+  gem 'hanami-reloader', '~> 2.1.0.rc'
 end
 
 group :cli, :development, :test do
-  gem "hanami-rspec", "~> 2.1.0.rc"
+  gem 'hanami-rspec', '~> 2.1.0.rc'
 end
 
 group :development, :test do
@@ -53,10 +53,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard-puma'
   gem 'localhost', '~> 1.1'
   gem 'rake', '~> 13.0'
   gem 'rerun', '~> 0.14'
-  gem "guard-puma"
 end
 
 group :test do

@@ -13,7 +13,7 @@ ROM::SQL.migration do
 
       column :type, String
 
-      column :topics, "text[]"
+      column :topics, 'text[]'
       column :title, String
       column :excerpt, String
       column :video_id, String

@@ -27,16 +27,16 @@ module Hanamimastery
     rescue PG::UndefinedFunction, PG::InvalidTextRepresentation, ROM::TupleCountMismatchError
       raise Errors::RecordNotFound.new(
         "Could not find record #{root.mapper.model} with primary key",
-        id: id
+        id:
       )
     end
 
     private
 
     def default_scope
-      root.
-        per_page(pagination.size).
-        page(pagination.number)
+      root
+        .per_page(pagination.size)
+        .page(pagination.number)
     rescue Hanamimastery::Utils::Pagination::PaginationUnsetError
       root
     end

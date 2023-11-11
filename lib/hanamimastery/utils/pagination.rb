@@ -39,22 +39,22 @@ module Hanamimastery
       PaginationType =
         Types::Hash.schema(
           page: Types::Hash.schema(
-            size: Types::Coercible::Integer.
-                    default(DEFAULT_SIZE).
-                    constructor { |value|
+            size: Types::Coercible::Integer
+                    .default(DEFAULT_SIZE)
+                    .constructor do |value|
                       value.nil? ? Dry::Types::Undefined : value
-                    }.constrained(gteq: 1, lteq: 50),
-            number: Types::Coercible::Integer.
-                    default(DEFAULT_PAGE).
-                    constructor { |value|
+                    end.constrained(gteq: 1, lteq: 50),
+            number: Types::Coercible::Integer
+                    .default(DEFAULT_PAGE)
+                    .constructor do |value|
                       value.nil? ? Dry::Types::Undefined : value
-                    }.constrained(gteq: 1)
-                ).with_key_transform(&:to_sym)
-        ).
-        with_key_transform(&:to_sym).
-        constructor { |value|
-          (value.nil? || value.to_h.empty?) ? { page: {} } : value
-        }
+                    end.constrained(gteq: 1)
+          ).with_key_transform(&:to_sym)
+        )
+                   .with_key_transform(&:to_sym)
+                   .constructor do |value|
+          value.nil? || value.to_h.empty? ? { page: {} } : value
+        end
 
       # Sets the pagination object and throws it down the stack,
       #   Yields the block making pagination object accessible within
@@ -79,7 +79,6 @@ module Hanamimastery
       def detect_page(params_hash)
         page_params = PaginationType[params_hash.to_h]
         PaginationPage.new(page_params[:page])
-
       rescue Dry::Types::SchemaError => e
         raise PaginationParamsError, e.message
       end

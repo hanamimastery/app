@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'byebug'
 module Main
   module Actions

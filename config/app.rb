@@ -12,7 +12,7 @@ module Hanamimastery
 
     config.middleware.use Hanamimastery::Middleware::BasicAuth
 
-    config.shared_app_component_keys += ["github.client", "parsers.front_matter"]
+    config.shared_app_component_keys += ['github.client', 'parsers.front_matter']
 
     config.inflections do |inflections|
       inflections.acronym 'DB'

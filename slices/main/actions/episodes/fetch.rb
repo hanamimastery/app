@@ -8,7 +8,7 @@ module Main
           interactor: 'interactors.fetch_draft_episodes'
         ]
 
-        def handle(request, response)
+        def handle(_request, response)
           result = interactor.call
           response.body = response.render view, episodes: result.value![:drafts]
         end

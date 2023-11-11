@@ -2,7 +2,6 @@
 
 require 'rom-factory'
 
-
 module Test
   Factory = ROM::Factory.configure { |config| config.rom = Test::Database.rom }
   module FactoryMethods

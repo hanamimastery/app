@@ -21,9 +21,9 @@ guard :rspec, cmd: 'NO_COVERAGE=true bundle exec rspec --format documentation' d
 end
 
 group :server do
-  guard "puma", port: ENV.fetch("HANAMI_PORT", 2300) do
+  guard 'puma', port: ENV.fetch('HANAMI_PORT', 2300) do
     # Edit the following regular expression for your needs.
     # See: https://guides.hanamirb.org/app/code-reloading/
-    watch(%r{^(app|config|lib|slices)([\/][^\/]+)*.(rb|erb|haml|slim)$}i)
+    watch(%r{^(app|config|lib|slices)(/[^/]+)*.(rb|erb|haml|slim)$}i)
   end
 end

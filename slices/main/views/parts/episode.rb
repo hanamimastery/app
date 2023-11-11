@@ -7,11 +7,11 @@ module Main
         def status_icon
           case value.status
           when Main::Entities::Episode::STATUSES[:draft]
-            "✍️"
+            '✍️'
           when Main::Entities::Episode::STATUSES[:scheduled]
-            "⌛"
+            '⌛'
           when Main::Entities::Episode::STATUSES[:published]
-            "🌎"
+            '🌎'
           end
         end
       end

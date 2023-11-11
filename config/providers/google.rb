@@ -9,7 +9,7 @@ Hanami.app.register_provider :google, namespace: true do
     ]
 
     authorizer =
-      Google::Auth::ServiceAccountCredentials.from_env(scope: scope)
+      Google::Auth::ServiceAccountCredentials.from_env(scope:)
     register 'authorizer', authorizer
 
     require 'google/apis/drive_v3'
@@ -19,8 +19,8 @@ Hanami.app.register_provider :google, namespace: true do
   end
 
   start do
-    target['google.authorizer'].
-      fetch_access_token!
+    target['google.authorizer']
+      .fetch_access_token!
 
     target['google.drive'].authorization = target['google.authorizer']
   end

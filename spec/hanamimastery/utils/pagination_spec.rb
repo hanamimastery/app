@@ -5,7 +5,7 @@ RSpec.describe Hanamimastery::Utils::Pagination do
     Class.new do
       include Hanamimastery::Utils::Pagination::Reader
 
-      def call = pagination;
+      def call = pagination
     end
   end
 
@@ -39,7 +39,7 @@ RSpec.describe Hanamimastery::Utils::Pagination do
     end
 
     it 'calling reader without setter raises the error' do
-      expect{ pagination_reader.call }.to raise_error(Hanamimastery::Utils::Pagination::PaginationUnsetError)
+      expect { pagination_reader.call }.to raise_error(Hanamimastery::Utils::Pagination::PaginationUnsetError)
     end
   end
 
@@ -52,28 +52,28 @@ RSpec.describe Hanamimastery::Utils::Pagination do
     end
 
     it 'works for stringified hash' do
-      params = { "page" => { "number" => 3, "size" => 4 } }
+      params = { 'page' => { 'number' => 3, 'size' => 4 } }
       result = subject.detect_page(params)
       expect(result.number).to eq(3)
       expect(result.size).to eq(4)
     end
 
     it 'works for empty hash' do
-      params = { }
+      params = {}
       result = subject.detect_page(params)
       expect(result.number).to eq(1)
       expect(result.size).to eq(10)
     end
 
     it 'sets defaults for missing keys' do
-      params = { "page" => { } }
+      params = { 'page' => {} }
       result = subject.detect_page(params)
       expect(result.number).to eq(1)
       expect(result.size).to eq(10)
     end
 
     it 'fails for incorrect values' do
-      params = { "page" => { "number" => -1, "size" => 0 } }
+      params = { 'page' => { 'number' => -1, 'size' => 0 } }
       expect { subject.detect_page(params) }.to raise_error(described_class::PaginationParamsError)
     end
 
@@ -85,16 +85,16 @@ RSpec.describe Hanamimastery::Utils::Pagination do
           params = { page: { number: 3, size: 4 } }
           expect(type[params]).to eq({ page: { number: 3, size: 4 } })
 
-          params = { "page" => { "number" => 3, "size" => 4 } }
+          params = { 'page' => { 'number' => 3, 'size' => 4 } }
           expect(type[params]).to eq({ page: { number: 3, size: 4 } })
 
-          params = { "page" => { } }
+          params = { 'page' => {} }
           expect(type[params]).to eq({ page: { number: 1, size: 10 } })
 
-          params = { }
+          params = {}
           expect(type[params]).to eq({ page: { number: 1, size: 10 } })
 
-          params = { "page" => { "number" => -1, "size" => 0 } }
+          params = { 'page' => { 'number' => -1, 'size' => 0 } }
           expect { type[params] }.to raise_error(Dry::Types::SchemaError)
         end
       end

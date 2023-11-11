@@ -1,17 +1,17 @@
-
 # frozen_string_literal: true
+
 require 'dry-transformer'
 
 module Main
   module Entities
     class Episode < Entity
-      DOMAIN = "https://hanamimastery.com"
+      DOMAIN = 'https://hanamimastery.com'
 
       STATUSES = {
         draft: 0,
         scheduled: 1,
         published: 2
-      }
+      }.freeze
 
       class CoverTransformation < Dry::Transformer::Pipe
         import Dry::Transformer::HashTransformations
@@ -32,7 +32,7 @@ module Main
       # The URL you can visit to get the published version of the article
       #
       def publication_url
-        return "" unless published?
+        return '' unless published?
 
         [DOMAIN, 'episodes', source_path.split('/').last].join('/')
       end

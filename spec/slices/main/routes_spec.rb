@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe "Main::Slice::Routes" do
+RSpec.describe 'Main::Slice::Routes' do
   let(:router) { Main::Slice.router }
 
   it 'recognizes "GET /"' do
@@ -39,7 +39,7 @@ RSpec.describe "Main::Slice::Routes" do
       expect(route).to be_routable
       expect(route.path).to eq('/episodes/1/refresh')
       expect(route.verb).to eq('PATCH')
-      expect(route.params).to eq({ id: "1" })
+      expect(route.params).to eq({ id: '1' })
     end
   end
 end

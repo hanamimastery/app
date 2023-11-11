@@ -10,27 +10,27 @@ module Main
       import Dry::Transformer::HashTransformations
 
       define! do
-        map_keys -> (k) { Dry::Inflector.new.underscore(k) }
+        map_keys ->(k) { Dry::Inflector.new.underscore(k) }
         deep_symbolize_keys
         rename_keys(
           id: :source_id,
           path: :source_path,
           url: :source_url
         )
-        accept_keys [
-          :source_id,
-          :excerpt,
-          :modified_at,
-          :published_at,
-          :title,
-          :topics,
-          :video_id,
-          :thumbnail,
-          :discussions,
-          :published,
-          :source_path,
-          :source_url,
-          :content
+        accept_keys %i[
+          source_id
+          excerpt
+          modified_at
+          published_at
+          title
+          topics
+          video_id
+          thumbnail
+          discussions
+          published
+          source_path
+          source_url
+          content
         ]
       end
     end

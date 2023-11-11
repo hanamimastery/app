@@ -5,7 +5,7 @@ Hanami.app.register_provider :parsers, namespace: true do
     require 'front_matter_parser'
 
     loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Date])
-    parser = FrontMatterParser::Parser.new(:md, loader: loader)
+    parser = FrontMatterParser::Parser.new(:md, loader:)
     register 'front_matter', parser
   end
 end

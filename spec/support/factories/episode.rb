@@ -5,13 +5,13 @@ Test::Factory.define(:episode, struct_namespace: Main::Entities) do |f|
   f.sequence(:source_url) { |n| "https://api.github.com/repos/swilgosz/hanamimastery/git/blobs/#{n}" }
   f.sequence(:source_path) { |n| "data/episodes/#{n}-episode" }
   # f.author "swilgosz"
-  f.topics ["hanami"]
-  f.title "This is sample episode"
+  f.topics ['hanami']
+  f.title 'This is sample episode'
   f.published false
   f.published_at nil
-  f.modified_at "2022-02-06"
+  f.modified_at '2022-02-06'
   # f.aliases ['HMEP001']
-  f.video_id "Gx4eqU-oDL8"
+  f.video_id 'Gx4eqU-oDL8'
   f.sequence(:thumbnail) do |n|
     {
       full: "images/episodes/#{n}/cover-full.jpeg",
@@ -23,7 +23,7 @@ Test::Factory.define(:episode, struct_namespace: Main::Entities) do |f|
     {
       twitter: "https://twitter.com/HanamiMastery/status/#{n}",
       reddit: {
-        ruby: "https://www.reddit.com/r/ruby/comments/o28dun/#{n}",
+        ruby: "https://www.reddit.com/r/ruby/comments/o28dun/#{n}"
       }
     }
   end
