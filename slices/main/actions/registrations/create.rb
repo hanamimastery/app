@@ -5,6 +5,8 @@ module Main
     module Registrations
       class Create < Main::Action
         def handle(request, response)
+          # response.flash[:error] = "Not implemented"
+          response.flash[:notice] = "Account registered!"
         end
       end
     end
