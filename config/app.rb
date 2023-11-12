@@ -31,7 +31,7 @@ module Hanamimastery
       expire_after: 60*60*24*365
     }
 
-    config.middleware.use Hanamimastery::Middleware::BasicAuth
+    config.middleware.use Hanamimastery::Middleware::BasicAuth unless Hanami.env == :test
 
     config.shared_app_component_keys += ['github.client', 'parsers.front_matter']
 
