@@ -20,6 +20,8 @@ task :environment do
   require 'hanami/prepare'
 end
 
+require "rom/sql/rake_task"
+
 namespace :db do
   task setup: :environment do
     Hanami.app.prepare :persistence
