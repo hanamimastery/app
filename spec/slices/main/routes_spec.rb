@@ -42,4 +42,22 @@ RSpec.describe 'Main::Slice::Routes' do
       expect(route.params).to eq({ id: '1' })
     end
   end
+
+  it 'recognizes "POST /signup"' do
+    route = router.recognize('/signup', {}, method: :post)
+    aggregate_failures do
+      expect(route).to be_routable
+      expect(route.path).to eq('/signup')
+      expect(route.verb).to eq('POST')
+    end
+  end
+
+  it 'recognizes "GET /signup"' do
+    route = router.recognize('/signup', {}, method: :get)
+    aggregate_failures do
+      expect(route).to be_routable
+      expect(route.path).to eq('/signup')
+      expect(route.verb).to eq('GET')
+    end
+  end
 end

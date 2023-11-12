@@ -10,5 +10,8 @@ module Main
     post '/episodes/fetch', to: 'episodes.fetch'
 
     patch '/episodes/:id/refresh', to: 'episodes.refresh'
+
+    post "/signup", to: "registrations.create", as: :register_account
+    get "/signup", to: "registrations.new", as: :signup
   end
 end
