@@ -10,7 +10,7 @@ RSpec.feature "Account registrations" do
     expect(page).to have_content('Register account')
   end
 
-  scenario "Renders the form 2" do
+  scenario "Renders successful notice" do
     visit '/signup'
 
     fill_in 'Username', with: 'jsmith'
@@ -18,5 +18,18 @@ RSpec.feature "Account registrations" do
     fill_in 'Password confirmation', with: 'secret'
     check 'registration-tac'
     click_button 'Register account'
+
+    expect(page).to have_content('Account successfully registered!')
   end
+
+  scenario "Renders error notice" do
+    visit '/signup'
+
+    fill_in 'Username', with: 'jsmith'
+    fill_in 'Password confirmation', with: 'secret'
+    check 'registration-tac'
+    click_button 'Register account'
+    expect(page).to have_content('Error occured while creating the account')
+  end
+
 end
