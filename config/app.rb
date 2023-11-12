@@ -25,6 +25,12 @@ module Hanamimastery
 
     config.actions.content_security_policy[:style_src] = "'unsafe-inline' https://cdn.jsdelivr.net"
 
+    config.actions.sessions = :cookie, {
+      key: "hanamimastery.session",
+      secret: settings.session_secret,
+      expire_after: 60*60*24*365
+    }
+
     config.middleware.use Hanamimastery::Middleware::BasicAuth
 
     config.shared_app_component_keys += ['github.client', 'parsers.front_matter']
