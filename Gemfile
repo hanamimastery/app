@@ -49,7 +49,7 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'dotenv', '~> 2.8'
-  # gem 'hanami-webconsole', github: 'hanami/webconsole', branch: 'main'
+  gem 'hanami-webconsole', github: 'hanami/webconsole', branch: 'main'
 end
 
 group :development do
