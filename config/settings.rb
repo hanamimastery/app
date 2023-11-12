@@ -10,5 +10,7 @@ module Hanamimastery
     setting :github_access_token, constructor: Types::String
 
     setting :font_awesome_kit, constructor: Types::String
+
+    setting :session_secret, constructor: Types::String
   end
 end
