@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '3.2.0'
+ruby '3.2.2'
 
 source 'https://rubygems.org'
 
@@ -49,7 +49,7 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'dotenv', '~> 2.8'
-  gem 'hanami-webconsole', github: 'hanami/webconsole', branch: 'main'
+  # gem 'hanami-webconsole', github: 'hanami/webconsole', branch: 'main'
 end
 
 group :development do
