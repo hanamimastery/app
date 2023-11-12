@@ -9,7 +9,8 @@
     </div>
   </div>
 
-  <%= f.label "password", class: "label" %>
+  <div class="field">
+    <%= f.label "password", class: "label" %>
     <div class="control has-icons-left">
       <%= f.password_field "password", class: "input", placeholder: "Password"%>
       <span class="icon is-small is-left">
@@ -18,11 +19,12 @@
     </div>
   </div>
 
-  <%= f.label "password_confirmation", class: "label" %>
+  <div class="field">
+    <%= f.label "password_confirmation", class: "label" %>
     <div class="control has-icons-left">
       <%= f.password_field "password_confirmation", class: "input", placeholder: "Password confirmation"%>
       <span class="icon is-small is-left">
-        <i class="fas fa-lock-hashtag"></i>
+        <i class="fas fa-user-lock"></i>
       </span>
     </div>
   </div>
