@@ -30,6 +30,6 @@ RSpec.feature "Account registrations" do
     check 'registration-tac'
     click_button 'Register account'
     expect(page).to have_content('Error occured while creating the account')
+    expect(page).to have_content('must be filled')
   end
-
 end

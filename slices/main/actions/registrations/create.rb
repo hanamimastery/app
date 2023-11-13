@@ -9,16 +9,21 @@ module Main
             required(:username).filled(:string)
             required(:password).filled(:string)
             required(:password_confirmation).filled(:string)
-            required(:tac).filled(:bool)
+            required(:tac).filled(:bool, eql?: true)
           end
         end
 
         def handle(request, response)
           if request.params.valid?
             response.flash[:notice] = "Account successfully registered!"
+            response.redirect(routes.path(:root))
           else
-            request.params.errors
-            response.flash[:error] = "Error occured while creating the account"
+            response.flash.now[:error] = "Error occured while creating the account"
+            response.render(
+              view,
+              registration: request.params[:registration],
+              errors: request.params.errors[:registration]
+            )
           end
         end
       end

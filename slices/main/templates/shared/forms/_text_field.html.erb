@@ -1,0 +1,16 @@
+<div class="field">
+  <%= f.label(field_name, class: "label") { label_text } %>
+  <div class="<%= control_field_classes %>">
+    <%=
+      f.text_field(
+        field_name,
+        class: input_field_classes,
+        placeholder: placeholder_text
+      )
+    %>
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+    <%= render("field_errors", messages: errors) if error_field? %>
+  </div>
+</div>
