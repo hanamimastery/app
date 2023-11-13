@@ -5,9 +5,9 @@
   </div>
 <% end %>
 
-<% if flash[:error] %>
+<% if flash[:alert] %>
   <div class="notification is-danger">
     <button class="delete"></button>
-    <%= flash[:error] %>
+    <%= flash[:alert] %>
   </div>
 <% end %>

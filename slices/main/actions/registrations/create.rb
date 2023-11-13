@@ -18,7 +18,7 @@ module Main
             response.flash[:notice] = "Account successfully registered!"
             response.redirect(routes.path(:root))
           else
-            response.flash.now[:error] = "Error occured while creating the account"
+            response.flash.now[:alert] = "Error occured while creating the account"
             response.render(
               view,
               registration: request.params[:registration],
