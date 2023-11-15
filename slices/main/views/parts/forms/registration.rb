@@ -7,7 +7,7 @@ module Main
         class Registration < Part
           def username_input(f)
             scope(
-              "shared/forms/input",
+              Scopes::Shared::Forms::Input,
               f: f,
               field_name: :username,
               errors: errors(:username)
@@ -16,7 +16,7 @@ module Main
 
           def password_input(f)
             scope(
-              "shared/forms/input",
+              Scopes::Shared::Forms::Input,
               f: f,
               field_name: :password,
               errors: errors(:password),
@@ -25,7 +25,7 @@ module Main
 
           def password_confirmation_input(f)
             scope(
-              "shared/forms/input",
+              Scopes::Shared::Forms::Input,
               f: f,
               field_name: :password_confirmation,
               errors: errors(:password_confirmation),
@@ -38,7 +38,7 @@ module Main
             label_text = "I agree to the #{ tac_link } & #{ pp_link }".html_safe
 
             scope(
-              "shared/forms/input",
+              Scopes::Shared::Forms::Input,
               f: f,
               field_name: :tac,
               label: label_text,
