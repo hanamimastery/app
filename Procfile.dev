@@ -1,2 +1,2 @@
-web: bundle exec hanami server
-assets: bundle exec hanami assets watch
+web: HANAMI_ENV=development bundle exec hanami server
+assets: HANAMI_ENV=development bundle exec hanami assets watch
