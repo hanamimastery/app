@@ -3,7 +3,7 @@
 module Main
   module Actions
     module Registrations
-      class New < Main::Action
+      class New < Main::ActionPublic
         def handle(request, response)
         end
       end

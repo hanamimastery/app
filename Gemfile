@@ -4,6 +4,9 @@ ruby '3.2.2'
 
 source 'https://rubygems.org'
 
+# Password encryption
+gem 'bcrypt'
+
 gem 'dry-effects'
 gem 'dry-matcher'
 gem 'dry-monads'
@@ -20,6 +23,8 @@ gem 'hanami-controller', github: 'hanami/controller', branch: 'main'
 gem 'hanami-router', github: 'hanami/router', branch: 'main'
 gem 'hanami-validations', github: 'hanami/validations', branch: 'main'
 gem 'hanami-view', github: 'hanami/view', branch: 'main'
+
+gem 'hanamimastery-cli'
 
 gem 'front_matter_parser'
 gem 'octokit'
