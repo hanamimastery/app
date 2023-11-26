@@ -1,0 +1,14 @@
+<div id="top-navigation" class="navbar-menu">
+  <div class="navbar-start">
+    <%= link_to 'Home', routes.path(:root), class: 'navbar-item' %>
+    <%= link_to 'Episodes', routes.path(:episodes), class: 'navbar-item' %>
+  </div>
+
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="buttons">
+        <%= link_to "Log out", routes.path(:logout), class: "button is-light" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://hanamimastery.com">
+      <img src="https://hanamimastery.com/logo-hm-letter.jpeg" height="28">
+    </a>
+  </div>
+
+  <% if current_user %>
+    <%= render('top_nav_authenticated') %>
+  <% else %>
+    <%= render('top_nav_unauthenticated') %>
+  <% end %>
+</nav>

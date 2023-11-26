@@ -3,11 +3,20 @@
 module Main
   module Views
     class Context < Hanami::View::Context
-      include Deps["settings"]
-      private :settings
+      include Deps[
+        "settings",
+        "repositories.accounts"
+      ]
+      private :settings, :accounts
 
       def font_awesome_kit
         settings.font_awesome_kit
+      end
+
+      def current_user
+        return unless id = session[:current_user_id]
+
+        accounts.find(id)
       end
     end
   end

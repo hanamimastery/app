@@ -1,0 +1,17 @@
+<div id="top-navigation" class="navbar-menu">
+  <div class="navbar-start">
+    <%= link_to 'Home', routes.path(:root), class: 'navbar-item' %>
+    <%= link_to 'Episodes', routes.path(:episodes), class: 'navbar-item' if current_user %>
+  </div>
+
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="buttons">
+        <%= link_to routes.path(:signup), class: "button is-primary" do %>
+          <strong>Sign up</strong>
+        <% end %>
+        <%= link_to 'Log in', routes.path(:login), class: "button is-light"%>
+      </div>
+    </div>
+  </div>
+</div>
