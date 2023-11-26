@@ -19,7 +19,7 @@ module Hanamimastery
 
       body = response.render(
         view,
-        values: request.params[model_name],
+        model: request.params[model_name],
         errors: request.params.errors[model_name]
       )
       halt 422, body
