@@ -6,7 +6,7 @@ module Main
       class Create < Main::Action
         params do
           required(:registration).hash do
-            required(:username).filled(:string)
+            required(:nickname).filled(:string)
             required(:password).filled(:string)
             required(:password_confirmation).filled(:string)
             required(:tac).filled(:bool, eql?: true)

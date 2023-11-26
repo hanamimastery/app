@@ -1,5 +1,5 @@
 <%= form_for :registration, routes.path(:register_account) do |f| %>
-  <%= form.username_input(f) %>
+  <%= form.nickname_input(f) %>
   <%= form.password_input(f) %>
   <%= form.password_confirmation_input(f) %>
   <%= form.tac_input(f) %>
@@ -9,7 +9,7 @@
       <%= f.submit "Register account", class: "button is-link" %>
     </div>
     <div class="control">
-      <%= link_to "Already have an account", "#", class: "button is-link is-light"%>
+      <%= link_to "Already have an account", routes.path(:login), class: "button is-link is-light"%>
     </div>
   </div>
 <% end %>
