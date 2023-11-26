@@ -1,0 +1,13 @@
+<%= form_for :session, routes.path(:authenticate) do |f| %>
+  <%= form.nickname_input(f) %>
+  <%= form.password_input(f) %>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.submit "Login", class: "button is-link" %>
+    </div>
+    <div class="control">
+      <%= link_to "I don't have an account", routes.path(:signup), class: "button is-link is-light"%>
+    </div>
+  </div>
+<% end %>

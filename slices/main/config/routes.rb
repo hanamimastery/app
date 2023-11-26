@@ -13,5 +13,9 @@ module Main
 
     post "/signup", to: "registrations.create", as: :register_account
     get "/signup", to: "registrations.new", as: :signup
+
+    get "/login", to: "sessions.new", as: :login
+    post "/login", to: "sessions.create", as: :authenticate
+    get "/logout", to: "sessions.destroy", as: :logout
   end
 end
