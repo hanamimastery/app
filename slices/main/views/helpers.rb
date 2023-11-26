@@ -4,7 +4,10 @@ module Main
   module Views
     module Helpers
       def flash_message
-        scope(Scopes::Shared::Flash, flash: _context.flash).render('layouts/flash_msg')
+        flash_scope = scope(Scopes::Notification, notification: _context.flash)
+        return if flash_scope.hidden?
+
+        flash_scope.render('layouts/flash_msg')
       end
     end
   end
