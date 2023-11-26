@@ -13,18 +13,11 @@ module Main
           end
         end
 
+        before :validate!
+
         def handle(request, response)
-          if request.params.valid?
             response.flash[:notice] = "Account successfully registered!"
             response.redirect(routes.path(:root))
-          else
-            response.flash.now[:alert] = "Error occured while creating the account"
-            response.render(
-              view,
-              registration: request.params[:registration],
-              errors: request.params.errors[:registration]
-            )
-          end
         end
       end
     end
