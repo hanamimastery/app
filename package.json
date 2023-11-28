@@ -2,7 +2,7 @@
   "name": "tim_test",
   "private": true,
   "scripts": {
-    "assets": "node config/assets.mjs"
+    "assets": "node config/assets.js"
   },
   "dependencies": {
     "hanami-assets": "^2.1.0-rc.1"

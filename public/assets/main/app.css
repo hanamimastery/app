@@ -1,0 +1,8 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css";
+
+/* slices/main/assets/css/app.css */
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: sans-serif;
+}

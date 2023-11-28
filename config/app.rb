@@ -15,6 +15,7 @@ module Hanamimastery
 
     config.actions.content_security_policy[:connect_src] = [
       'self',
+      'localhost:2300',
       'https://ka-f.fontawesome.com'
     ].join(' ')
 
