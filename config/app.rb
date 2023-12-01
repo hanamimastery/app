@@ -10,6 +10,7 @@ module Hanamimastery
     config.actions.content_security_policy[:script_src] = [
       'self',
       'https://unpkg.com',
+      'localhost:2300',
       'https://kit.fontawesome.com'
     ].join(' ')
 
@@ -21,10 +22,15 @@ module Hanamimastery
 
     config.actions.content_security_policy[:font_src] = [
       'self',
+      'localhost:2300',
       'https://ka-f.fontawesome.com'
     ].join(' ')
 
-    config.actions.content_security_policy[:style_src] = "'unsafe-inline' https://cdn.jsdelivr.net"
+    config.actions.content_security_policy[:style_src] = [
+      "'unsafe-inline'",
+      'https://cdn.jsdelivr.net',
+      'localhost:2300'
+    ].join(' ')
 
     config.actions.sessions = :cookie, {
       key: "hanamimastery.session",

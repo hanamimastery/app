@@ -9,4 +9,9 @@
 .env.development
 gh.json
 
-node_modules
+/node_modules
+
+.env
+.env.*
+
+spec/examples.txt
