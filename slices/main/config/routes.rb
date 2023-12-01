@@ -9,6 +9,7 @@ module Main
     get '/episodes', to: 'episodes.index', as: :episodes
     post '/episodes/fetch', to: 'episodes.fetch'
 
+    get '/episodes/:id', to: 'episodes.show', as: :episode
     patch '/episodes/:id/refresh', to: 'episodes.refresh'
 
     post "/signup", to: "registrations.create", as: :register_account

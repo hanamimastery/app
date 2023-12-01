@@ -4,7 +4,7 @@ require 'byebug'
 module Main
   module Actions
     module Episodes
-      class Index < Main::Action
+      class Show < Main::Action
         def handle(request, response)
           paginate(request.params) { response.render view }
         end
