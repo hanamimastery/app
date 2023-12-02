@@ -1,0 +1,37 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <p class="title">
+      <%= episode.title %>
+    </p>
+    <p class="subtitle">
+      Browse episode details easily
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <button class="button is-primary" hx-post="episodes/<%= episode.id %>/refresh" hx-swap="beforebegin" hx-target="#recent-episodes">
+    Refresh
+  </button>
+</section>
+
+<section class="section">
+  <div class="tabs">
+    <ul>
+      <li class="is-active"><a>Raw</a></li>
+      <li><a>Notion Transcript</a></li>
+      <li><a>Preview</a></li>
+      <li><a>Hashnode</a></li>
+      <li><a>Medium</a></li>
+      <li><a>Hackernoon</a></li>
+      <li><a>PRO</a></li>
+    </ul>
+  </div>
+  <article>
+    <pre>
+      <code>
+      <%= episode.content(view) %>
+      </code>
+    </pre>
+  </article>
+</section>

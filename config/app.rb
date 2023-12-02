@@ -40,6 +40,10 @@ module Hanamimastery
 
     # config.middleware.use Hanamimastery::Middleware::BasicAuth unless Hanami.env == :test
 
+    config.render_error_responses.merge!(
+      "Errors::RecordNotFound" => :not_found
+    )
+
     config.shared_app_component_keys += ['github.client', 'parsers.front_matter']
 
     config.inflections do |inflections|

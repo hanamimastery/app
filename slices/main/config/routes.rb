@@ -7,13 +7,14 @@ module Main
     post '/subscribe', to: 'home.subscribe'
 
     get '/episodes', to: 'episodes.index', as: :episodes
-    post '/episodes/fetch', to: 'episodes.fetch'
+    post '/episodes/fetch', to: 'episodes.fetch', as: :fetch_episodes
 
     get '/episodes/:id', to: 'episodes.show', as: :episode
-    patch '/episodes/:id/refresh', to: 'episodes.refresh'
+    get '/episodes/:id/:view', to: 'episodes.show', as: :episode_view
+    patch '/episodes/:id/refresh', to: 'episodes.refresh', as: :refresh_episode
 
-    post "/signup", to: "registrations.create", as: :register_account
     get "/signup", to: "registrations.new", as: :signup
+    post "/signup", to: "registrations.create", as: :register_account
 
     get "/login", to: "sessions.new", as: :login
     post "/login", to: "sessions.create", as: :authenticate

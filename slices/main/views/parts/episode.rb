@@ -14,6 +14,10 @@ module Main
             '🌎'
           end
         end
+
+        def content(view_type)
+          value.content
+        end
       end
     end
   end
