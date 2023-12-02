@@ -21,7 +21,7 @@ module Main
           parsed = front_matter.call(content)
           entry.to_h.merge(content: parsed.content, **parsed.front_matter)
         end
-        new_drafts = episodes.create_from_github(tuples)
+        new_drafts = episodes.create(tuples)
         Success(drafts: new_drafts)
       end
 
