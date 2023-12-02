@@ -42,6 +42,17 @@ RSpec.describe 'Main::Slice::Routes' do
     end
   end
 
+  it 'recognizes "DELETE /episodes/1"' do
+    route = router.recognize(:delete_episode, { id: 1, view: 'hashnode' }, method: :delete)
+    aggregate_failures do
+      expect(route).to be_routable
+      expect(route.path).to eq('/episodes/1')
+      expect(route.verb).to eq('DELETE')
+      expect(route.params).to eq({ id: '1' })
+    end
+  end
+
+
   it 'recognizes "PATCH /episodes/1/refresh"' do
     route = router.recognize(:refresh_episode, { id: 1 }, method: :patch)
     aggregate_failures do

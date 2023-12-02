@@ -12,7 +12,7 @@ module Main
     get '/episodes/:id', to: 'episodes.show', as: :episode
     get '/episodes/:id/:view', to: 'episodes.show', as: :episode_view
     patch '/episodes/:id/refresh', to: 'episodes.refresh', as: :refresh_episode
-
+    delete "/episodes/:id", to: "episodes.destroy", as: :delete_episode
     get "/signup", to: "registrations.new", as: :signup
     post "/signup", to: "registrations.create", as: :register_account
 

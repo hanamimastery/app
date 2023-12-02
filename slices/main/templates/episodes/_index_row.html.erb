@@ -5,6 +5,7 @@
   <th><abbr title="Status"><%= episode.status_icon %></abbr></th>
   <td>
     <%= render "button_refresh", episode: episode %>
+    <%= render "button_destroy", episode: episode %>
     <%= render "button_publish", episode: episode unless episode.published? %>
   </td>
 </tr>
