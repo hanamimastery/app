@@ -8,28 +8,27 @@ gem 'dry-effects'
 gem 'dry-matcher'
 gem 'dry-monads'
 gem 'dry-transformer', github: 'dry-rb/dry-transformer', branch: 'main'
-gem 'dry-types', '~> 1.7'
+gem "dry-types", "~> 1.0", ">= 1.6.1"
 gem 'erbse', '~> 0.1'
 
 gem 'google-apis-drive_v3'
 gem 'googleauth'
 
-gem 'hanami', github: 'hanami/hanami', branch: 'main'
-gem 'hanami-assets', github: 'hanami/assets', branch: 'main'
-gem 'hanami-controller', github: 'hanami/controller', branch: 'main'
-gem 'hanami-router', github: 'hanami/router', branch: 'main'
-gem 'hanami-validations', github: 'hanami/validations', branch: 'main'
-gem 'hanami-view', github: 'hanami/view', branch: 'main'
+gem "hanami", "~> 2.2.0.beta"
+gem "hanami-assets", "~> 2.2.0.beta"
+gem "hanami-controller", "~> 2.2.0.beta"
+gem "hanami-db", "~> 2.2.0.beta"
+gem "hanami-router", "~> 2.2.0.beta"
+gem "hanami-validations", "~> 2.2.0.beta"
+gem "hanami-view", "~> 2.2.0.beta"
 
 gem 'front_matter_parser'
 gem 'octokit'
+gem "ostruct" # extracted from standard ruby library for Ruby 3.5 compatibility
 
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.0'
 gem 'refinements', '~> 10.0'
-gem 'rom', '~> 5.3'
-gem 'rom-sql', '~> 3.6'
-gem 'sequel', '~> 5.64'
 
 group :analyze do
   gem 'caliber', '~> 0.21'
@@ -39,17 +38,16 @@ group :analyze do
 end
 
 group :cli, :development do
-  gem 'hanami-reloader', '~> 2.1.0.rc'
+  gem "hanami-reloader", "~> 2.2.0.beta"
 end
 
 group :cli, :development, :test do
-  gem 'hanami-rspec', '~> 2.1.0.rc'
+  gem "hanami-rspec", "~> 2.2.0.beta"
 end
 
 group :development, :test do
   gem 'byebug'
   gem 'dotenv', '~> 2.8'
-  gem 'hanami-webconsole', github: 'hanami/webconsole', branch: 'main'
 end
 
 group :development do
@@ -57,6 +55,7 @@ group :development do
   gem 'localhost', '~> 1.1'
   gem 'rake', '~> 13.0'
   gem 'rerun', '~> 0.14'
+  gem "hanami-webconsole", "~> 2.2.0.beta"
 end
 
 group :test do

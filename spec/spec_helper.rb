@@ -24,3 +24,5 @@ require_relative 'support/factory'
 
 require_relative 'support/requests'
 require_relative 'support/web'
+
+SPEC_ROOT.glob("support/**/*.rb").each { |f| require f }

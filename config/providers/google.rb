@@ -20,7 +20,7 @@ Hanami.app.register_provider :google, namespace: true do
 
   start do
     target['google.authorizer']
-      .fetch_access_token!
+      &.fetch_access_token!
 
     target['google.drive'].authorization = target['google.authorizer']
   end

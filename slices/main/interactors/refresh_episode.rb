@@ -11,7 +11,7 @@ module Main
       include Deps[
         'integrations.github',
         'parsers.front_matter',
-        'repositories.episodes',
+        'repos.episodes',
         transformation: 'transformations.front_matter_to_db'
       ]
 

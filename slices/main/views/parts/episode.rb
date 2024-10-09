@@ -6,11 +6,11 @@ module Main
       class Episode < Part
         def status_icon
           case value.status
-          when Main::Entities::Episode::STATUSES[:draft]
+          when Main::Structs::Episode::STATUSES[:draft]
             '✍️'
-          when Main::Entities::Episode::STATUSES[:scheduled]
+          when Main::Structs::Episode::STATUSES[:scheduled]
             '⌛'
-          when Main::Entities::Episode::STATUSES[:published]
+          when Main::Structs::Episode::STATUSES[:published]
             '🌎'
           end
         end

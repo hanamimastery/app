@@ -5,7 +5,7 @@ module Main
     module Episodes
       # Renders index view.
       class Index < Main::View
-        include Deps[repo: 'repositories.episodes']
+        include Deps[repo: 'repos.episodes']
 
         expose :episodes do
           repo.recent

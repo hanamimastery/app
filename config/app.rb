@@ -7,23 +7,13 @@ require 'hanamimastery/middleware/basic_auth'
 module Hanamimastery
   # Handles HTTP requests.
   class App < Hanami::App
-    config.actions.content_security_policy[:script_src] = [
-      'self',
-      'https://unpkg.com',
-      'https://kit.fontawesome.com'
-    ].join(' ')
+    config.actions.content_security_policy[:script_src] = "'self' https://unpkg.com https://kit.fontawesome.com"
 
-    config.actions.content_security_policy[:connect_src] = [
-      'self',
-      'https://ka-f.fontawesome.com'
-    ].join(' ')
+    config.actions.content_security_policy[:connect_src] = "'self' https://ka-f.fontawesome.com"
 
-    config.actions.content_security_policy[:font_src] = [
-      'self',
-      'https://ka-f.fontawesome.com'
-    ].join(' ')
+    config.actions.content_security_policy[:font_src] = "'self' https://ka-f.fontawesome.com"
 
-    config.actions.content_security_policy[:style_src] = "'unsafe-inline' https://cdn.jsdelivr.net"
+    config.actions.content_security_policy[:style_src] = "'self' 'unsafe-inline' https://cdn.jsdelivr.net"
 
     config.middleware.use Hanamimastery::Middleware::BasicAuth
 

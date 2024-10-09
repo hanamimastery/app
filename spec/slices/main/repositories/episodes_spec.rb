@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Main::Repositories::Episodes do
+RSpec.describe Main::Repos::Episodes, :main_db do
   let(:tuples) do
     [
       {
