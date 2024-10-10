@@ -8,7 +8,7 @@ module Main
       class Show < Main::Action
         params do
           required(:id).value(:string)
-          maybe(:view).value(:string)
+          optional(:view).value(:string)
         end
 
         def handle(request, response)
