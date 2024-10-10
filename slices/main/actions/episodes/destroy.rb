@@ -4,7 +4,7 @@ module Main
   module Actions
     module Episodes
       class Destroy < Main::Action
-        include Deps['repositories.episodes']
+        include Deps['repos.episodes']
 
         params do
           required(:id).value(:string)

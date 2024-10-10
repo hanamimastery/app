@@ -6,7 +6,7 @@ module Main
   module Actions
     module Sessions
       class Create < Main::ActionPublic
-        include Deps['repositories.accounts']
+        include Deps['repos.accounts']
 
         model :session
 

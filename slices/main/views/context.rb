@@ -5,7 +5,7 @@ module Main
     class Context < Hanami::View::Context
       include Deps[
         "settings",
-        "repositories.accounts"
+        "repos.accounts"
       ]
       private :settings, :accounts
 

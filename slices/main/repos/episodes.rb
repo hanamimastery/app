@@ -4,8 +4,8 @@ require 'dry/transformer'
 
 module Main
   module Repos
-    class Episodes < DB::Repo[:episodes]
-      commands :create, delete: :by_pk
+    class Episodes < Main::DB::Repo[:episodes]
+      # commands :create, delete: :by_pk
 
       TRANSFORMATION = Transformations::FrontMatterToDB.new
 

@@ -5,7 +5,7 @@ module Main
     module Registrations
       class Create < Main::ActionPublic
         include Deps[
-          'repositories.accounts',
+          'repos.accounts',
           'transformations.account_to_db'
         ]
 
@@ -24,7 +24,6 @@ module Main
 
         def handle(request, response)
           response.flash[:notice] = "Account successfully registered!"
-
           account = accounts.create(account_to_db.call(request.params[model_name]))
           response.session[:current_user_id] = account.id
 

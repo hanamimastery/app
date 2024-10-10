@@ -7,9 +7,9 @@ module Hanamimastery
     class Repo < Hanami::DB::Repo
       include Hanamimastery::Utils::Pagination::Reader
 
-      # auto_struct true
+      auto_struct true
 
-      commands :create, update: :by_pk
+      commands :create, delete: :by_pk
 
       def multi_insert(array)
         root.command(:create, result: :many).call(array)
