@@ -36,6 +36,17 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: accounts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.accounts (
+    id uuid DEFAULT public.uuid_generate_v4() NOT NULL,
+    nickname text,
+    encrypted_password text
+);
+
+
+--
 -- Name: episodes; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -69,6 +80,22 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: accounts accounts_nickname_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.accounts
+    ADD CONSTRAINT accounts_nickname_key UNIQUE (nickname);
+
+
+--
+-- Name: accounts accounts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.accounts
+    ADD CONSTRAINT accounts_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: episodes episodes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -92,4 +119,5 @@ SET search_path TO "$user", public;
 
 INSERT INTO schema_migrations (filename) VALUES
 ('20230216125658_create_episodes.rb'),
-('20230920084422_add_published_to_articles.rb');
+('20230920084422_add_published_to_articles.rb'),
+('20231112111808_create_accounts.rb');
