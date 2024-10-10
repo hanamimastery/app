@@ -7,14 +7,15 @@
     <%= stylesheet_tag "main/app" %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> %>
-
-    <script src="https://kit.fontawesome.com/<%= font_awesome_kit %>.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/<%= _context.font_awesome_kit %>.js" crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/htmx.org@1.8.4/dist/htmx.min.js"
             crossorigin="anonymous"
             integrity="sha384-wg5Y/JwF7VxGk4zLsJEcAojRtlVp1FKKdGy1qN+OMtdq72WRvX/EdRdqg/LOhYeV">
     </script>
+
+    <%= favicon_tag %>
+    <%= stylesheet_tag "app" %>
   </head>
 
   <body>
@@ -34,6 +35,6 @@
         </p>
       </div>
     </footer>
-    <%= javascript_tag "main/app" %>
+    <%= javascript_tag "app" %>
   </body>
 </html>

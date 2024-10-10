@@ -3,8 +3,8 @@
 require 'dry-transformer'
 
 module Main
-  module Entities
-    class Episode < Entity
+  module Structs
+    class Episode < Main::DB::Struct
       DOMAIN = 'https://hanamimastery.com'
 
       STATUSES = {

@@ -3,6 +3,6 @@
 require 'byebug'
 
 container = Main::Slice.container
-container['repositories.episodes'].all.delete
+container['repos.episodes'].all.delete
 interactor = container['interactors.fetch_draft_episodes']
 interactor.call

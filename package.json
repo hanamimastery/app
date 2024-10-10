@@ -2,10 +2,7 @@
   "name": "hanamimastery",
   "private": true,
   "type": "module",
-  "scripts": {
-    "assets": "node config/assets.js"
-  },
   "dependencies": {
-    "hanami-assets": "^2.1.0-rc.2"
+    "hanami-assets": "^2.2.0-beta.2"
   }
 }

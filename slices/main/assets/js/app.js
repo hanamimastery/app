@@ -1,4 +1,5 @@
 import "../css/app.css";
+
 console.log('LOADED MAIN APP.js 2');
 
 document.body.addEventListener('htmx:configRequest', (event) => {

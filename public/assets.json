@@ -1,17 +1,1 @@
-{
-  "app.js": {
-    "url": "/assets/app.js"
-  },
-  "app.css": {
-    "url": "/assets/app.css"
-  },
-  "main/app.js": {
-    "url": "/assets/main/app.js"
-  },
-  "main/app.css": {
-    "url": "/assets/main/app.css"
-  },
-  "favicon.ico": {
-    "url": "/assets/favicon.ico"
-  }
-}
+{}

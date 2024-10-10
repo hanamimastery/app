@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Main::Entities::Episode do
+RSpec.describe Main::Structs::Episode, :main_db do
   let(:params) { {} }
   let(:episode) { build(:episode, params) }
 
@@ -14,11 +14,13 @@ RSpec.describe Main::Entities::Episode do
 
   describe '#cover' do
     it 'builds full URLs for cover images' do
-      expect(episode.cover).to eq({
-                                    full: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-full.jpeg",
-                                    big: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-big.jpeg",
-                                    small: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-small.jpeg"
-                                  })
+      expect(episode.cover).to eq(
+        {
+          full: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-full.jpeg",
+          big: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-big.jpeg",
+          small: "https://hanamimastery.com/images/episodes/#{episode.source_id}/cover-small.jpeg"
+        }
+      )
     end
   end
 

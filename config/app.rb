@@ -27,6 +27,7 @@ module Hanamimastery
     ].join(' ')
 
     config.actions.content_security_policy[:style_src] = [
+      'self',
       "'unsafe-inline'",
       'https://cdn.jsdelivr.net',
       'localhost:2300'

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Main::Interactors::RefreshEpisode do
+RSpec.describe Main::Interactors::RefreshEpisode, :main_db do
   let(:github) { Mocks::Github::Client.new }
   let(:subject) { described_class.new(github:) }
 
@@ -40,7 +40,7 @@ RSpec.describe Main::Interactors::RefreshEpisode do
         result = subject.call(episode_id)
         expect(result).to be_failure
         expect(result.failure.code).to eq('HM0001')
-        expect(result.failure.reason).to eq('Could not find record Main::Entities::Episode with primary key')
+        expect(result.failure.reason).to eq('Could not find record Main::Structs::Episode with primary key')
         expect(result.failure.metadata).to eq({ id: episode_id })
       end
     end
